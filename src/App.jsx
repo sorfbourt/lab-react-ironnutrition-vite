@@ -31,7 +31,7 @@ function App() {
             return food
           }
         }).map((food, index)=>{
-          return <FoodBox key={index} food={food}/>
+          return <FoodBox key={index} food={food} setFoodsState={setFoodsState} foodsState={foodsState}/>
         })}
       </Row>
     </div>
