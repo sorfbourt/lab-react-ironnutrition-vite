@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Card, Row, Col, Divider, Input, Button } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
 
-function AddFoodForm({setFoodsState}) {
+function AddFoodForm({setFoodsState, addFoodForm, setAddFoodForm}) {
 
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
@@ -21,8 +21,11 @@ function AddFoodForm({setFoodsState}) {
         setServings(0)
     }
 
+    const displayStyleNone = {display: `none`}
+    const displayStyleBlock = {display: `block`}
+
   return (
-    <div>
+    <div style={addFoodForm === true ? displayStyleNone : displayStyleBlock}>
          <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
             <label>Name: <Input value={name} type="text" onChange={event =>setName(event.target.value)} /></label>
             <label>Image: <Input value={image} type="text" onChange={event =>setImage(event.target.value)} /></label>

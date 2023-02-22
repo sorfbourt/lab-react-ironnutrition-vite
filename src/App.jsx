@@ -10,14 +10,20 @@ import SearchBar from './components/SearchBar'
 function App() {
   const [foodsState, setFoodsState] = useState(foods)
   const [searchString, setSearchString] = useState('')
+  const [addFoodForm, setAddFoodForm] = useState(false)
+
+  const togglePicture = () =>{
+    setAddFoodForm(!addFoodForm)
+  }
+
   return (
     <div className="App">
       {/* Display Add Food component here */}
 
-      <Button> Hide Form / Add New Food </Button>
+      <Button onClick={togglePicture}> {addFoodForm === true ? "Hide Form" : "Add New Food"} </Button>
+      <AddFoodForm setFoodsState={setFoodsState} addFoodForm={addFoodForm} setAddFoodForm={setAddFoodForm}/>
 
       {/* Display Search component here */}
-      <AddFoodForm setFoodsState={setFoodsState} />
       <SearchBar setSearchString={setSearchString} searchString={searchString} setFoodsState={setFoodsState} foodsState={foodsState}/>
       <Divider>Food List</Divider>
 
