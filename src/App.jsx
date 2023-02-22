@@ -4,6 +4,7 @@ import foods from './foods.json'
 
 import './App.css'
 import FoodBox from './components/FoodBox'
+import AddFoodForm from './components/AddFoodForm'
 
 function App() {
   const [foodsState, setFoodsState] = useState(foods)
@@ -14,6 +15,7 @@ function App() {
       <Button> Hide Form / Add New Food </Button>
 
       {/* Display Search component here */}
+      <AddFoodForm setFoodsState={setFoodsState} />
 
       <Divider>Food List</Divider>
 
