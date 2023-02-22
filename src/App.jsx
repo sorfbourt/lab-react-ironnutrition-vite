@@ -11,8 +11,9 @@ function App() {
   const [foodsState, setFoodsState] = useState(foods)
   const [searchString, setSearchString] = useState('')
   const [addFoodForm, setAddFoodForm] = useState(false)
+  const [emptyFood, setEmptyFood] = useState(false)
 
-  const togglePicture = () =>{
+  const toggleForm = () =>{
     setAddFoodForm(!addFoodForm)
   }
 
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
       {/* Display Add Food component here */}
 
-      <Button onClick={togglePicture}> {addFoodForm === true ? "Add New Food" : "Hide Form"} </Button>
+      <Button onClick={toggleForm}> {addFoodForm === true ? "Add New Food" : "Hide Form"} </Button>
       <AddFoodForm setFoodsState={setFoodsState} addFoodForm={addFoodForm} setAddFoodForm={setAddFoodForm}/>
 
       {/* Display Search component here */}
@@ -37,9 +38,11 @@ function App() {
             return food
           }
         }).map((food, index)=>{
-          return <FoodBox key={index} food={food} setFoodsState={setFoodsState} foodsState={foodsState}/>
+          return <FoodBox key={index} food={food} setFoodsState={setFoodsState} foodsState={foodsState} emptyFood={emptyFood} setEmptyFood={setEmptyFood}/>
         })}
       </Row>
+
+      {emptyFood === true ? "Opps! There is no more content to show" : ""}
     </div>
   );
 }

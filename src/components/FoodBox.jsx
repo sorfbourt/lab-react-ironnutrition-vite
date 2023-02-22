@@ -5,17 +5,26 @@
 import { Card, Col, Button } from 'antd';
 
 // Iteration 2
-function FoodBox({food, setFoodsState, foodsState}) {
+function FoodBox({food, setFoodsState, foodsState, setEmptyFood, emptyFood}) {
   const handleDelete = (foodName) =>{
-    //console.log("target id", foodName)
 
-    const foodsList = [...foodsState]
-    //console.log("foodsList", foodsList)
-    const listAfterDeletedFood = foodsList.filter((food) =>{
-      return food.name !== foodName
-    })
-    //console.log("listAfterDeletedFood", listAfterDeletedFood)
-    setFoodsState(listAfterDeletedFood)
+    //console.log(foodsState.length)
+    //console.log(foodsState)
+    
+    if(foodsState.length > 0){
+      const foodsList = [...foodsState]
+      const listAfterDeletedFood = foodsList.filter((food) =>{
+        return food.name !== foodName
+      })
+      setFoodsState(listAfterDeletedFood)
+    }
+    if(foodsState.length == 1){
+      console.log(foodsState.length)
+      setEmptyFood(true)
+    }
+
+   
+
   }
   return (
     <Col>
