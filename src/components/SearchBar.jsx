@@ -20,8 +20,6 @@ function SearchBar({setSearchString, searchString, setFoodsState, foodsState}) {
 
         <label>Search: <Input value={searchString} type="text" onChange={event =>setSearchString(event.target.value)} /></label>
 
-        <button type="submit">Search</button>
-
         </form>
 
 

@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       {/* Display Add Food component here */}
 
-      <Button onClick={togglePicture}> {addFoodForm === true ? "Hide Form" : "Add New Food"} </Button>
+      <Button onClick={togglePicture}> {addFoodForm === true ? "Add New Food" : "Hide Form"} </Button>
       <AddFoodForm setFoodsState={setFoodsState} addFoodForm={addFoodForm} setAddFoodForm={setAddFoodForm}/>
 
       {/* Display Search component here */}
